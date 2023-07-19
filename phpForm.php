@@ -17,9 +17,10 @@ else{
 $enroll = $_REQUEST["enroll"];
 $email = $_REQUEST["email"];
 $branch = $_REQUEST["branch"];
+$age = $_REQUEST["age"];
 $feedback = $_REQUEST["feedback"];
 
-$query = "INSERT INTO feedback_form1 VALUES ('$enroll','$email','$branch','$feedback')"; 
+$query = "INSERT INTO feedback_form1 VALUES ('$enroll','$email','$branch','$age','$feedback')"; 
 
 if(mysqli_query($connection, $query)){  
     echo "Record inserted successfully";

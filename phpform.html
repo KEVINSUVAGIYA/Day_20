@@ -10,6 +10,8 @@
             background-color:aquamarine ;
             font-size: 25px;
             color: gray;
+            display: flex;
+            justify-content: space-evenly;
         }
         input{
             width: 400px;
@@ -17,30 +19,103 @@
             font-size: 20px;
             padding: 10px;
         }
+        #accordion{
+            margin-top: 10%;
+            width: 50%;
+            font-size: 16px;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            color: gray;
+        }
+        fieldset{
+            padding: 30px;
+            font-size: 15px;
+        }
+        fieldset label{
+            margin: 10px;
+        }
+        .rad-2{
+            padding-left: 40px;
+        }
+
+        #radio-1 , #radio-2{
+            height: 15px;
+            width: 15px;
+            margin: 0;
+        }
     </style>
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <!-- <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">   -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>  
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>  
+    <link rel="stylesheet" href="/resources/demos/style.css">
+
+    <script>  
+        $(function() {  
+            $( "#accordion" ).accordion();  
+        });
+        $( function() {
+            $( "input" ).checkboxradio();
+        } );
+        function NoAge(){
+            $("#age-toggle").hide();
+        }
+        function YesAge(){
+            $("#age-toggle").show();
+        }
+    </script>  
+          
 </head>
 <body>
+    <div id="accordion">
+        <h3>Student</h3>
+        <div>
+          <p>
+            If you are a Student, Then you can give your feedback for the university, your suggestions would be greatful. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem illo iure totam quam delectus dolores sint quo consequatur dolor aspernatur harum nihil doloremque nemo, asperiores ducimus id repudiandae inventore incidunt.
+          </p>
+        </div>
+        <h3>Faculty</h3>
+        <div>
+          <p>
+            If you are a Faculty, Then you can give your feedback for the university, your suggestions would be greatful. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum reiciendis non est placeat facere ducimus exercitationem sapiente ipsa adipisci recusandae!
+          </p>
+        </div>
+    </div>
     <Div>
         <form action="phpForm.php" method="post">
             <p>
                 <label for="enroll">Enrollment no.</label>
                 <br>
-                <input type="text" name="enroll" id="Enroll">
+                <input type="text" name="enroll" id="Enroll" required>
             </p>
             <p>
                 <label for="email">Email</label>
                 <br>
-                <input type="text" name="email" id="Email">
+                <input type="text" name="email" id="Email" required>
             </p>
             <p>
                 <label for="branch">Branch</label>
                 <br>
-                <input type="text" name="branch" id="Branch">
+                <input type="text" name="branch" id="Branch" required>
+            </p>
+            <p>
+                <fieldset>
+                  <legend>Do you prefer to add your age?</legend>
+                  <label for="radio-1" >Yes</label>
+                  <input type="radio" name="radio-1" id="radio-1" checked onchange="YesAge()">
+                  <label for="radio-2" class="rad-2">No</label>
+                  <input type="radio" name="radio-1" id="radio-2" onchange="NoAge()">
+                </fieldset>
+            </p>
+            <p id="age-toggle">
+                <label for="age">Age</label>
+                <br>
+                <input type="number" id="age" name="age">
             </p>
             <p>
                 <label for="feedback">Feedback</label>
                 <br>
-                <textarea name="feedback" id="Feedback" cols="55" rows="5"></textarea>
+                <textarea name="feedback" id="Feedback" cols="55" rows="5" required></textarea>
             </p>
             <p>
                 <input type="submit" value="submit">
